@@ -7,53 +7,46 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## 🧾 Guía de Ejercicios query builder
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este proyecto fue desarrollado con **Laravel 11** utilizando **Laravel Herd**.  
+Su objetivo es practicar la implementación de **consultas SQL** mediante **Eloquent ORM**, basándose en un modelo de datos simple con las tablas `usuarios` y `pedidos`.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🧩 Diagrama de la Base de Datos
 
-## Learning Laravel
+### Tabla `usuarios`
+| Campo     | Tipo     | Descripción                   |
+|------------|----------|-------------------------------|
+| id         | BIGINT   | Llave primaria (autoincrement) |
+| nombre     | VARCHAR  | Nombre del usuario             |
+| correo     | VARCHAR  | Correo electrónico (único)     |
+| telefono   | VARCHAR  | Número de teléfono             |
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Tabla `pedidos`
+| Campo       | Tipo     | Descripción                              |
+|--------------|----------|------------------------------------------|
+| id           | BIGINT   | Llave primaria (autoincrement)           |
+| producto     | VARCHAR  | Nombre del producto                      |
+| cantidad     | INT      | Cantidad solicitada                      |
+| total        | DECIMAL  | Monto total del pedido                   |
+| id_usuario   | BIGINT   | Llave foránea → `usuarios.id`            |
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Relación: **Un usuario puede tener varios pedidos.**
 
-## Laravel Sponsors
+## 🚀 Endpoints Disponibles (API)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+| #  | Ruta            | Descripción                                                              |
+|----|-----------------|--------------------------------------------------------------------------|
+| 1  | /api/consulta1  | Inserta los registro y los borra los anterioes si existen                |
+| 2  | /api/consulta2  | Muestra todos los pedidos del usuario con ID = 2                         |
+| 3  | /api/consulta3  | Muestra los pedidos con el nombre y correo del usuario asociado          |
+| 4  | /api/consulta4  | Recupera los pedidos con total entre $100 y $250.                        |
+| 5  | /api/consulta5  | Muestra los usuarios cuyos nombres comienzan con “R”.                    |
+| 6  | /api/consulta6  | Calcula cuántos pedidos tiene el usuario con ID = 5                      |
+| 7  | /api/consulta7  | Lista los pedidos con datos del usuario, ordenados por total descendente |
+| 8  | /api/consulta8  | Muestra la suma total del campo total en todos los pedidos               |
+| 9  | /api/consulta9  | Muestra el pedido más económico y el nombre del usuario que lo realizó   |
+| 10 | /api/consulta10 | Agrupa pedidos por usuario, mostrando cantidad total y suma de totales   |
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

@@ -24,6 +24,7 @@ class ConsultaController extends Controller
             ['nombre' => 'Erick Joya', 'correo' => 'erick.joya@mail.com', 'telefono' => '61402545'],
             ['nombre' => 'Armando Campos', 'correo' => 'armando.campos@mail.com', 'telefono' => '67678010'],
             ['nombre' => 'Eder', 'correo' => 'Eder@mail.com', 'telefono' => '76076000'],
+            ['nombre' => 'Roxana Mejia', 'correo' => 'toty@mail.com', 'telefono' => '76076777'],
         ]);
 
         // Inserta 5 pedidos
@@ -33,6 +34,7 @@ class ConsultaController extends Controller
             ['producto' => 'Monitor', 'cantidad' => 1, 'total' => 250, 'id_usuario' => 3],
             ['producto' => 'Laptop', 'cantidad' => 1, 'total' => 999, 'id_usuario' => 4],
             ['producto' => 'USB', 'cantidad' => 5, 'total' => 75, 'id_usuario' => 5],
+            ['producto' => 'Tarjeta Grafica RTX5080TI', 'cantidad' => 1, 'total' => 1369.95, 'id_usuario' => 6],
         ]);
         //Salida al mensaje
         return response()->json(['message' => 'Registros insertados correctamente']);
@@ -122,5 +124,5 @@ class ConsultaController extends Controller
 
         return response()->json($resultados);
     }
-    
+
 }
